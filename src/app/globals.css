@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
 
-@custom-variant dark (&:is(.dark *));
+@variant dark (&:is(.dark *));
 
 :root {
   /* Light mode colors */
@@ -51,9 +51,9 @@
   --neutral-900: #18181b;
 }
 
- .dark {
+.dark {
   /* Dark mode colors */
-   --primary-50: #0c1a2a;
+  --primary-50: #0c1a2a;
   --primary-100: #1e3a8a;
   --primary-200: #1e40af;
   --primary-300: #2563eb;
@@ -103,36 +103,41 @@
   --color-secondary: #06b6d4;
   --color-bg: #ffffff;
   --color-text: #1f2937;
-  
+
   --color-primary-dark: #818cf8;
   --color-secondary-dark: #22d3ee;
   --color-bg-dark: #0f172a;
   --color-text-dark: #f1f5f9;
+  /* Base theme colors */
+  /* --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-input: var(--color-input);
+  --color-ring: var(--color-ring); */
 }
- 
 
 body {
-  @apply bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  @apply bg-white dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900;
 }
 
 .gradient-bg {
-    @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500;
-  }
-  
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600 bg-clip-text text-transparent;
-  }
-  
-  .card-glass {
-    @apply bg-white/10 dark:bg-neutral-800/30 backdrop-blur-lg border border-white/20 dark:border-neutral-700/50;
-  }
-  
-  .hover-lift {
-    @apply transition-transform duration-300 hover:scale-105 hover:-translate-y-2;
-  }
-  
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
-  }
+  @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500;
+}
 
+.gradient-text {
+  @apply bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600 bg-clip-text text-transparent;
+}
+
+.card-glass {
+  @apply bg-white/10 dark:bg-neutral-800/30 backdrop-blur-lg border border-white/20 dark:border-neutral-700/50;
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:scale-105 hover:-translate-y-2;
+}
+
+.section-padding {
+  @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+}

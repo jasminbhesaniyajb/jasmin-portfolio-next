@@ -1,12 +1,9 @@
-"use client";
 import AboutSection from "@/components/about-section";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
-
-export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
