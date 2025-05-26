@@ -4,7 +4,7 @@ import * as React from 'react'
 import { createContext, useContext, useEffect, useState } from 'react'
 
 const initialState = {
-  theme: 'system',
+  theme: 'dark',
   setTheme: () => null,
 }
 
@@ -12,7 +12,7 @@ const ThemeProviderContext = createContext(initialState)
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = 'dark',
   storageKey = 'ui-theme',
   attribute = 'class',
   enableSystem = true,
@@ -26,7 +26,7 @@ export function ThemeProvider({
 
     root.classList.remove('light', 'dark')
 
-    if (theme === 'system' && enableSystem) {
+    if (theme === 'dark' && enableSystem) {
       const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
         .matches
         ? 'dark'
