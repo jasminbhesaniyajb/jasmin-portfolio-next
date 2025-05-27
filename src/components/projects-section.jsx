@@ -17,13 +17,13 @@ const ProjectsSection = () => {
         }`}
         style={{ transitionDelay: `${index * 150}ms` }}
       >
-        <Card className="h-full overflow-hidden transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
+        <Card className="h-full pt-0 overflow-hidden transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
           {/* Project Image */}
-          <div className="relative overflow-hidden">
+          <div className="relative w-full h-56 overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-center transition-transform duration-500 group-hover:scale-110"
               onError={(e) => {
                 e.target.src = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center';
               }}
@@ -54,20 +54,20 @@ const ProjectsSection = () => {
             </div>
 
             {/* Category Badge */}
-            <div className="absolute top-4 left-4">
+            {/* <div className="absolute top-4 left-4">
               <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-full">
                 Frontend
               </span>
-            </div>
+            </div> */}
 
             {/* Featured Badge */}
-            {project.featured && (
+            {/* {project.featured && (
               <div className="absolute top-4 right-4">
                 <span className="px-2 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-medium rounded-full">
                   Featured
                 </span>
               </div>
-            )}
+            )} */}
           </div>
 
           {/* Project Content */}
@@ -93,6 +93,7 @@ const ProjectsSection = () => {
             </div>
 
             {/* Action Links */}
+            {project.liveUrl && (
             <div className="flex items-center justify-between">
               <a
                 href={project.liveUrl}
@@ -105,6 +106,7 @@ const ProjectsSection = () => {
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
+            )}
           </div>
         </Card>
       </div>
@@ -134,7 +136,7 @@ const ProjectsSection = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {PROJECTS.map((project, index) => (
               <ProjectCard 
                 key={project.id} 

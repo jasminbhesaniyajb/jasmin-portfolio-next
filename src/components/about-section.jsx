@@ -73,7 +73,7 @@ const AboutSection = () => {
                     <Badge 
                       key={tech} 
                       variant="secondary" 
-                      className="hover:scale-105 transition-transform duration-200 cursor-default"
+                      className="hover:scale-105 text-base bg-primary-600 text-white transition-transform duration-200 cursor-default"
                       style={{
                         animationDelay: `${index * 0.1}s`
                       }}
@@ -86,7 +86,7 @@ const AboutSection = () => {
             </div>
 
             {/* Right Column - Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {highlights.map((highlight, index) => (
                 <Card 
                   key={highlight.title}
