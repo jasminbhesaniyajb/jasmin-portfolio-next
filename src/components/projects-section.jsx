@@ -2,84 +2,13 @@
 import { ExternalLink, Github, ArrowRight, Eye } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { Card } from './ui/card';
-
-// Mock projects data - replace with your actual projects
-const PROJECTS = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description: "A modern e-commerce frontend with sleek design, shopping cart functionality, product filtering, and responsive checkout flow. Features smooth animations and optimized user experience.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&crop=center",
-    liveUrl: "https://ecommerce-demo.vercel.app",
-    githubUrl: "https://github.com/username/ecommerce-platform",
-    techStack: ["Next.js", "React", "Tailwind CSS", "Stripe", "shadcn/ui"],
-    category: "Frontend",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop&crop=center",
-    liveUrl: "https://taskmaster-app.vercel.app",
-    githubUrl: "https://github.com/username/task-manager",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Firebase", "Framer Motion"],
-    category: "Frontend",
-    featured: true
-  },
-  {
-    id: 3,
-    title: "Weather Dashboard",
-    description: "A modern weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics with beautiful visualizations.",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop&crop=center",
-    liveUrl: "https://weather-dashboard-pro.vercel.app",
-    githubUrl: "https://github.com/username/weather-dashboard",
-    techStack: ["Next.js", "Tailwind CSS", "Chart.js", "OpenWeather API"],
-    category: "Frontend",
-    featured: false
-  },
-  {
-    id: 4,
-    title: "Social Media Analytics",
-    description: "Frontend dashboard for social media metrics with interactive data visualization, engagement tracking, and performance insights with modern UI components.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=center",
-    liveUrl: "https://social-analytics.vercel.app",
-    githubUrl: "https://github.com/username/social-analytics",
-    techStack: ["React", "D3.js", "Tailwind CSS", "Chart.js", "shadcn/ui"],
-    category: "Frontend",
-    featured: false
-  },
-  {
-    id: 5,
-    title: "Portfolio Website",
-    description: "A responsive portfolio website with smooth animations, dark mode support, and optimized performance. Built with modern web technologies.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&crop=center",
-    liveUrl: "https://portfolio-website.vercel.app",
-    githubUrl: "https://github.com/username/portfolio",
-    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "shadcn/ui"],
-    category: "Frontend",
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Recipe Finder App",
-    description: "A recipe discovery app with ingredient-based search, nutritional information, and meal planning features. Includes user favorites and shopping lists.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center",
-    liveUrl: "https://recipe-finder-pro.vercel.app",
-    githubUrl: "https://github.com/username/recipe-finder",
-    techStack: ["React", "Tailwind CSS", "Spoonacular API", "Firebase"],
-    category: "Frontend",
-    featured: false
-  }
-];
+import { PROJECTS } from '@/constants';
 
 const ProjectsSection = () => {
   const { elementRef, isVisible } = useIntersectionObserver();
-//   const [hoveredProject, setHoveredProject] = useState(null);
 
   const ProjectCard = ({ project, index }) => {
-    // const isHovered = hoveredProject === project.id;
-    const isHovered = false; // Placeholder for hover state logic
+    const isHovered = false;
     
     return (
       <div
@@ -87,8 +16,6 @@ const ProjectsSection = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
         style={{ transitionDelay: `${index * 150}ms` }}
-        // onMouseEnter={() => setHoveredProject(project.id)}
-        // onMouseLeave={() => setHoveredProject(null)}
       >
         <Card className="h-full overflow-hidden transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
           {/* Project Image */}
@@ -177,16 +104,6 @@ const ProjectsSection = () => {
                 <span>Live Demo</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
-              
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors duration-200"
-              >
-                <Github className="w-4 h-4" />
-                <span>Code</span>
-              </a>
             </div>
           </div>
         </Card>
@@ -238,9 +155,6 @@ const ProjectsSection = () => {
                   I'm always excited to work on new projects and collaborate with talented individuals. 
                   Let's create something amazing together!
                 </p>
-                <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                  Get In Touch
-                </button>
               </div>
             </Card>
           </div>

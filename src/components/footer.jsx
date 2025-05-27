@@ -14,20 +14,20 @@ const Footer = () => {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/jasmin",
-      color: "hover:text-gray-600"
+      url: "https://github.com/jasminbhesaniyajb",
+      color: "hover:text-blue-600"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/jasmin",
+      url: "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1/",
       color: "hover:text-blue-600"
     },
     {
       name: "Twitter",
       icon: Twitter,
-      url: "https://twitter.com/jasmin",
-      color: "hover:text-blue-400"
+      url: "https://x.com/BhesaniyaJb",
+      color: "hover:text-blue-600"
     }
   ];
 

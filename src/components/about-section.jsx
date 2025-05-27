@@ -121,8 +121,8 @@ const AboutSection = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 { number: '5+', label: 'Years Experience', icon: '📅' },
-                { number: '50+', label: 'Projects Completed', icon: '🚀' },
-                { number: '10+', label: 'Technologies Mastered', icon: '⚡' },
+                { number: '7+', label: 'Projects Completed', icon: '🚀' },
+                { number: '4+', label: 'Technologies Mastered', icon: '⚡' },
                 { number: '5+', label: 'Developers Mentored', icon: '👥' },
               ].map((stat, index) => (
                 <div 
