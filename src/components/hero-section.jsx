@@ -75,9 +75,9 @@ const HeroSection = () => {
           </div>
 
           {/* Name */}
-          <h1 className="mb-4">
+          <h1>
             <span
-              className="block text-4xl sm:text-5xl lg:text-7xl font-bold mb-2 animate-fadeInUp"
+              className="block text-4xl sm:text-5xl lg:text-7xl font-bold animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
               <span className="gradient-text">Jasmin Bhesaniya</span>
@@ -85,26 +85,27 @@ const HeroSection = () => {
           </h1>
 
           {/* Dynamic Role */}
-          <div className="mb-4 h-20 flex items-center justify-center">
-            <h2
-              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-neutral-700 dark:text-neutral-300 animate-fadeInUp"
-              style={{ animationDelay: "0.4s" }}
-            >
-              {roles.map((role, index) => (
-                <span
-                  key={role}
-                  className={cn(
-                    "absolute transition-all duration-500 ease-in-out",
-                    currentRole === index
-                      ? "opacity-100 transform translate-y-0"
-                      : "opacity-0 transform translate-y-4"
-                  )}
-                >
-                  {role}
-                </span>
-              ))}
-            </h2>
-          </div>
+          <div className="relative mb-4 h-20 flex items-center justify-center overflow-hidden">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-neutral-700 dark:text-neutral-300 animate-fadeInUp relative">
+            {roles.map((role, index) => (
+              <span
+                key={role}
+                className={cn(
+                  "absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-500 ease-in-out whitespace-nowrap text-blue-600 dark:text-blue-400",
+                  currentRole === index
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                )}
+                style={{
+                  animationDelay: "0.4s",
+                  minWidth: "max-content"
+                }}
+              >
+                {role}
+              </span>
+            ))}
+          </h2>
+        </div>
 
           {/* Description */}
           <p
