@@ -168,17 +168,16 @@ export const PROJECTS = [
     category: "Frontend",
     featured: false
   },
-  // {
-  //   id: 6,
-  //   title: "Recipe Finder App",
-  //   description: "A recipe discovery app with ingredient-based search, nutritional information, and meal planning features. Includes user favorites and shopping lists.",
-  //   image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center",
-  //   liveUrl: "https://recipe-finder-pro.vercel.app",
-  //   githubUrl: "https://github.com/username/recipe-finder",
-  //   techStack: ["React", "Tailwind CSS", "Spoonacular API", "Firebase"],
-  //   category: "Frontend",
-  //   featured: false
-  // }
+  {
+    id: 6,
+    title: "GothamMeds",
+    description: "GothamMeds is a feature-rich e-commerce platform designed for seamless online shopping.",
+    image: "/images/gotham.png",
+    liveUrl: "https://gothammeds.com/",
+    techStack: ["Next.js", "Tailwind CSS", "Shadcn ui", "HTML5", "CSS3"],
+    category: "Frontend",
+    featured: false
+  }
 ];
 
 export const EXPERIENCE = [
