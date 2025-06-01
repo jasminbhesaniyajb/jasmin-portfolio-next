@@ -42,22 +42,22 @@ const AboutSection = () => {
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
                   I am a <span className="font-semibold text-primary-600 dark:text-primary-400">Senior Front-End Developer</span> with 
-                  <span className="font-semibold"> 5+ years of specialized experience</span> in building responsive web applications. 
+                  <span className="font-semibold text-primary-600 dark:text-primary-400"> 5+ years of specialized experience</span> in building responsive web applications. 
                   My journey in web development has been driven by a passion for creating intuitive, performant, and accessible user interfaces.
                 </p>
                 
-                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                  My technical expertise spans across <span className="font-semibold text-secondary-600 dark:text-secondary-400">React.js, Next.js, Vue.js, React Native, TypeScript, and GraphQL</span>. 
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-2">
+                  My technical expertise spans across <span className="font-semibold text-primary-600 dark:text-primary-400">React.js, Next.js, Vue.js, React Native, TypeScript, and GraphQL</span>. 
                   I have strong UI/UX skills with modern responsive frameworks including Tailwind CSS, Shadcn, Ant Design, Material UI, and Vuetify.
                 </p>
                 
-                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                  Beyond coding, I have <span className="font-semibold text-accent-600 dark:text-accent-400">leadership experience</span> through 
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-2">
+                  Beyond coding, I have <span className="font-semibold text-primary-600 dark:text-primary-400">leadership experience</span> through 
                   mentoring junior developers, conducting code reviews, and maintaining high code quality standards. 
                   My DevOps knowledge includes CI/CD pipelines and Vercel deployment strategies across multiple environments.
                 </p>
                 
-                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mt-2">
                   As a growth-oriented professional, I'm currently expanding into backend technologies with the goal of 
                   <span className="font-semibold text-primary-600 dark:text-primary-400"> full-stack development</span>.
                 </p>
@@ -135,10 +135,10 @@ const AboutSection = () => {
                   <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold gradient-text mb-2">
+                  <div className="text-3xl lg:text-4xl font-bold text-primary-600 mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-neutral-600 dark:text-neutral-400 text-sm font-medium">
+                  <div className="text-primary-600 text-lg font-semibold">
                     {stat.label}
                   </div>
                 </div>

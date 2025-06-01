@@ -117,7 +117,7 @@ const ProjectsSection = () => {
     <section 
       id="projects" 
       ref={elementRef} 
-      className="px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-white dark:bg-neutral-900"
+      className="px-4 sm:px-6 lg:px-8 py-16 lg:py-16 bg-white dark:bg-neutral-900"
     >
       <div className="max-w-7xl mx-auto">
         <div className={`transition-all duration-1000 ease-out ${
@@ -149,7 +149,7 @@ const ProjectsSection = () => {
           {/* Call to Action */}
           <div className="mt-16 text-center">
             <Card className="max-w-4xl mx-auto">
-              <div className="p-8">
+              <div className="p-4 md:p-8">
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
                   Interested in Working Together?
                 </h3>

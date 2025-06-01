@@ -68,7 +68,7 @@ const HeroSection = () => {
           )}
         >
           {/* Greeting */}
-          <div className="mb-4">
+          <div className="mb-4 mt-10">
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-full text-sm font-medium text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 animate-fadeInUp">
               👋 Hello, I'm
             </span>
