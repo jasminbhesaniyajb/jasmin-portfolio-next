@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 import { cn } from "@/lib/utils";
 import { useTheme } from "./theme-provider";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,8 +96,12 @@ const Header = () => {
 
           {/* Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
+            <Avatar className="md:h-14 md:w-14">
+              <AvatarImage className="object-center object-cover" src="/images/jasmin-profile.JPG" />
+              <AvatarFallback>JB</AvatarFallback>
+            </Avatar>
             {/* Theme Toggle */}
-            <button
+            {/* <button
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10"
               aria-label="Toggle theme"
@@ -131,7 +136,7 @@ const Header = () => {
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
               <span className="sr-only">Toggle theme</span>
-            </button>
+            </button> */}
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
