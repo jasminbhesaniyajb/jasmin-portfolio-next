@@ -37,7 +37,7 @@ export const metadata = {
       "Jasmin Bhesaniya is a passionate Frontend Developer specializing in React, Next.js, React Native, Vue.js and modern web technologies.",
     images: [
       {
-        url: "/images/jasmin-profile.JPG", // Add your Open Graph image
+        // url: "/images/jasmin-profile.JPG", // Add your Open Graph image
         width: 1200,
         height: 630,
         alt: "Jasmin Bhesaniya - Frontend Developer Portfolio",
@@ -83,7 +83,7 @@ export default function Home() {
     description:
       "Passionate frontend developer specializing in React, Next.js, Node.js, and modern web technologies.",
     url: "https://jasmin-portfolio-next.vercel.app",
-    image: "/images/jasmin-profile.JPG",
+    // image: "/images/jasmin-profile.JPG",
     sameAs: [
       "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1",
       "https://github.com/jasminbhesaniyajb",
