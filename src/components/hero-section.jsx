@@ -85,8 +85,8 @@ const HeroSection = () => {
           </h1>
 
           {/* Dynamic Role */}
-          <div className="relative mb-4 h-20 flex items-center justify-center overflow-hidden">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-neutral-700 dark:text-neutral-300 animate-fadeInUp relative">
+          <div className="relative mb-4 h-14 md:h-20 flex items-center justify-center overflow-hidden">
+          <h2 className="text-md sm:text-2xl lg:text-3xl font-semibold text-neutral-700 dark:text-neutral-300 animate-fadeInUp relative">
             {roles.map((role, index) => (
               <span
                 key={role}
@@ -138,7 +138,7 @@ const HeroSection = () => {
 
           {/* Social Links */}
           <div
-            className="mt-6 flex justify-center space-x-6 animate-fadeInUp"
+            className="my-4 flex justify-center space-x-6 animate-fadeInUp"
             style={{ animationDelay: "1s" }}
           >
             {[
