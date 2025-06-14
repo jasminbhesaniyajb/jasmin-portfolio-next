@@ -178,16 +178,16 @@ export const PROJECTS = [
     category: "Frontend",
     featured: false
   },
-  {
-    id: 7,
-    title: "GothamMeds Admin",
-    description: "GothamMeds Management Dashboard ",
-    image: "/images/gotham_admin.png",
-    // liveUrl: "https://gothammeds.com/",
-    techStack: ["Next.js", "Tailwind CSS", "Shadcn ui", "HTML5", "CSS3"],
-    category: "Frontend",
-    featured: false
-  }
+  // {
+  //   id: 7,
+  //   title: "GothamMeds Admin",
+  //   description: "GothamMeds Management Dashboard ",
+  //   image: "/images/gotham_admin.png",
+  //   // liveUrl: "https://gothammeds.com/",
+  //   techStack: ["Next.js", "Tailwind CSS", "Shadcn ui", "HTML5", "CSS3"],
+  //   category: "Frontend",
+  //   featured: false
+  // }
 ];
 
 export const EXPERIENCE = [
