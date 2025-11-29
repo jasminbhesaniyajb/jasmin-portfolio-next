@@ -25,6 +25,9 @@ export const metadata = {
   authors: [{ name: "Jasmin Bhesaniya" }],
   creator: "Jasmin Bhesaniya",
   publisher: "Jasmin Bhesaniya",
+  verification: {
+    google: "zF_IO-8AV8Mx49Dclh-LYjihNIYbLuxh1GXWbXRKXqM", // Replace with your actual Google verification code
+  },
 
   // Open Graph / Facebook
   openGraph: {
