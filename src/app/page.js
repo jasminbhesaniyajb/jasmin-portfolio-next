@@ -6,13 +6,13 @@ import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
 
 export const metadata = {
-  title: "Jasmin Bhesaniya - Frontend Developer",
+  title: "Jasmin Bhesaniya - Senior Frontend Developer",
   description:
     "Jasmin Bhesaniya is a passionate Frontend Developer specializing in React, Next.js, Vue.js, React Native and modern web technologies. View my portfolio and projects.",
   keywords: [
     "Jasmin Bhesaniya",
     "Frontend Developer",
-    "Frontend Developer",
+    "Frontend Engineer",
     "React Developer",
     "Next.js Developer",
     "UI/UX Designer",
@@ -35,7 +35,7 @@ export const metadata = {
     locale: "en_US",
     url: "https://jasmin-portfolio-next.vercel.app", // Replace with your actual domain
     siteName: "Jasmin Bhesaniya Portfolio",
-    title: "Jasmin Bhesaniya - Frontend Developer",
+    title: "Jasmin Bhesaniya - Senior Frontend Developer",
     description:
       "Jasmin Bhesaniya is a passionate Frontend Developer specializing in React, Next.js, React Native, Vue.js and modern web technologies.",
     images: [
