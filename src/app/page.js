@@ -33,7 +33,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://jasmin-portfolio-next.vercel.app", // Replace with your actual domain
+    url: "https://jasminportfoliopro.vercel.app", // Replace with your actual domain
     siteName: "Jasmin Bhesaniya Portfolio",
     title: "Jasmin Bhesaniya - Senior Frontend Developer",
     description:
@@ -63,7 +63,7 @@ export const metadata = {
 
   // Canonical URL
   alternates: {
-    canonical: "https://jasmin-portfolio-next.vercel.app",
+    canonical: "https://jasminportfoliopro.vercel.app",
   },
 
   // Additional metadata
@@ -85,7 +85,7 @@ export default function Home() {
     jobTitle: "Frontend Developer",
     description:
       "Passionate frontend developer specializing in React, Next.js, Node.js, and modern web technologies.",
-    url: "https://jasmin-portfolio-next.vercel.app",
+    url: "https://jasminportfoliopro.vercel.app",
     // image: "/images/jasmin-profile.JPG",
     sameAs: [
       "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1",
