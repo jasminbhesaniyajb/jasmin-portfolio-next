@@ -1,5 +1,14 @@
 export const BLOG_POSTS = [
   {
+    id: 11,
+    title: "🤖 Generative AI vs AI Agents vs Agentic AI — What’s the Real Difference?",
+    description: "AI is evolving very fast — from tools that only create content to systems that can think, plan, and act on their own.",
+    link: "https://medium.com/@jasminbhesaniya/generative-ai-vs-ai-agents-vs-agentic-ai-whats-the-real-difference-210f4c2e9119",
+    image: "",
+    category: "Generative AI, AI Agents, Agentic AI",
+    date: "2026"
+  },
+  {
     id: 1,
     title: "React’s New <Activity /> Component: Preserve UI State Without Unmounting",
     description: "Learn how the new Activity component in React allows you to control the visibility of content while preserving its state.",
