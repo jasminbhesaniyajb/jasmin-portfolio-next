@@ -4,114 +4,73 @@ import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import ProjectsSection from "@/components/projects-section";
 import SkillsSection from "@/components/skills-section";
+import { siteConfig } from "@/lib/site";
 
+// Home inherits title/description/OG/Twitter/robots/canonical from the root layout.
 export const metadata = {
-  title: "Jasmin Bhesaniya - Senior Frontend Developer",
-  description:
-    "Jasmin Bhesaniya is a passionate Frontend Developer specializing in React, Next.js, Vue.js, React Native and modern web technologies. View my portfolio and projects.",
-  keywords: [
-    "Jasmin Bhesaniya",
-    "Frontend Developer",
-    "Frontend Engineer",
-    "React Developer",
-    "Next.js Developer",
-    "UI/UX Designer",
-    "Web Developer",
-    "JavaScript Developer",
-    "Portfolio",
-    "Web Design",
-    "Mobile App Development",
-  ],
-  authors: [{ name: "Jasmin Bhesaniya" }],
-  creator: "Jasmin Bhesaniya",
-  publisher: "Jasmin Bhesaniya",
-  verification: {
-    google: "zF_IO-8AV8Mx49Dclh-LYjihNIYbLuxh1GXWbXRKXqM", // Replace with your actual Google verification code
-  },
-
-  // Open Graph / Facebook
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://jasminportfoliopro.vercel.app", // Replace with your actual domain
-    siteName: "Jasmin Bhesaniya Portfolio",
-    title: "Jasmin Bhesaniya - Senior Frontend Developer",
-    description:
-      "Jasmin Bhesaniya is a passionate Frontend Developer specializing in React, Next.js, React Native, Vue.js and modern web technologies.",
-    images: [
-      {
-        // url: "/images/jasmin-profile.JPG", // Add your Open Graph image
-        width: 1200,
-        height: 630,
-        alt: "Jasmin Bhesaniya - Frontend Developer Portfolio",
-      },
-    ],
-  },
-
-  // Additional Meta Tags
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  // Canonical URL
-  alternates: {
-    canonical: "https://jasminportfoliopro.vercel.app",
-  },
-
-  // Additional metadata
-  category: "Technology",
-  classification: "Portfolio Website",
-  referrer: "origin-when-cross-origin",
-  colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Jasmin Bhesaniya",
-    jobTitle: "Frontend Developer",
-    description:
-      "Passionate frontend developer specializing in React, Next.js, Node.js, and modern web technologies.",
-    url: "https://jasminportfoliopro.vercel.app",
-    // image: "/images/jasmin-profile.JPG",
-    sameAs: [
-      "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1",
-      "https://github.com/jasminbhesaniyajb",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${siteConfig.url}/#person`,
+        name: siteConfig.name,
+        jobTitle: siteConfig.jobTitle,
+        description: siteConfig.description,
+        url: siteConfig.url,
+        email: `mailto:${siteConfig.email}`,
+        image: `${siteConfig.url}/images/jasmin-profile.webp`,
+        sameAs: [
+          siteConfig.social.linkedin,
+          siteConfig.social.github,
+          siteConfig.social.twitter,
+          siteConfig.social.medium,
+        ],
+        worksFor: { "@type": "Organization", name: "Simprosys InfoMedia" },
+        knowsAbout: [
+          "React",
+          "Next.js",
+          "React Native",
+          "Vue.js",
+          "Remix",
+          "Flutter",
+          "Supabase",
+          "JavaScript",
+          "TypeScript",
+          "UI/UX Design",
+          "Frontend Development",
+          "Web Performance",
+        ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: siteConfig.location.city,
+          addressRegion: siteConfig.location.region,
+          addressCountry: siteConfig.location.country,
+        },
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteConfig.url}/#website`,
+        url: siteConfig.url,
+        name: siteConfig.name,
+        description: siteConfig.description,
+        inLanguage: "en-US",
+        publisher: { "@id": `${siteConfig.url}/#person` },
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${siteConfig.url}/#webpage`,
+        url: siteConfig.url,
+        name: siteConfig.title,
+        isPartOf: { "@id": `${siteConfig.url}/#website` },
+        about: { "@id": `${siteConfig.url}/#person` },
+        inLanguage: "en-US",
+      },
     ],
-    worksFor: {
-      "@type": "Organization",
-      name: "Freelancer",
-    },
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "JavaScript",
-      "TypeScript",
-      "UI/UX Design",
-      "Full Stack Development",
-      "Web Development",
-      "Mobile App Development",
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Ahmedabad",
-      addressRegion: "Gujarat",
-      addressCountry: "India",
-    },
   };
 
   return (
@@ -120,7 +79,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="min-h-screen bg-bg text-text transition-colors duration-300">
+      <main className="min-h-screen bg-neutral-50 text-neutral-800 transition-colors duration-300 dark:bg-neutral-900 dark:text-neutral-200">
         <Header />
         <HeroSection />
         <AboutSection />

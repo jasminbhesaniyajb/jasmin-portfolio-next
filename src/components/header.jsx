@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 import { useTheme } from "./theme-provider";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import ThemeToggle from "./theme-toggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,9 +83,11 @@ const Header = () => {
             <a
               href="/"
               onClick={(e) => handleNavigation(e, "#home")}
-              className="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-200"
+              className="group font-mono text-xl font-bold tracking-tight text-neutral-800 transition-transform duration-200 hover:scale-105 dark:text-neutral-100"
             >
-              Portfolio
+              <span className="text-primary-500">&lt;</span>
+              jasmin
+              <span className="text-secondary-500">/&gt;</span>
             </a>
           </div>
 
@@ -111,9 +114,11 @@ const Header = () => {
           </div>
 
           {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            <Avatar className="md:h-14 md:w-14">
-              <AvatarImage className="object-center object-cover" src="/images/jasmin-profile.JPG" />
+          <div className="flex items-center space-x-3">
+            <ThemeToggle />
+
+            <Avatar className="ring-2 ring-primary-500/20 md:h-12 md:w-12">
+              <AvatarImage className="object-cover object-center" src="/images/jasmin-profile.webp" />
               <AvatarFallback>JB</AvatarFallback>
             </Avatar>
 

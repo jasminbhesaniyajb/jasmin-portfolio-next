@@ -55,7 +55,7 @@ const ProjectsSection = () => {
 
             {/* Category Badge */}
             {/* <div className="absolute top-4 left-4">
-              <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-full">
+              <span className="px-3 py-1 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-medium rounded-full">
                 Frontend
               </span>
             </div> */}
@@ -72,7 +72,7 @@ const ProjectsSection = () => {
 
           {/* Project Content */}
           <div className="p-6">
-            <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+            <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
               {project.title}
             </h3>
             
@@ -99,7 +99,7 @@ const ProjectsSection = () => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-200"
+                className="flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors duration-200"
               >
                 <Eye className="w-4 h-4" />
                 <span>Live Demo</span>
@@ -125,10 +125,9 @@ const ProjectsSection = () => {
         }`}>
           {/* Section Header */}
           <div className="text-center mb-16">
+            <p className="mono-label mb-3">// 03. projects</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
-                Projects
-              </span>
+              <span className="gradient-text">Projects</span>
             </h2>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
               A showcase of my recent work and projects. Each project represents a unique challenge and learning experience.
@@ -150,8 +149,8 @@ const ProjectsSection = () => {
           <div className="mt-16 text-center">
             <Card className="max-w-4xl mx-auto">
               <div className="p-4 md:p-8">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
-                  Interested in Working Together?
+                <h3 className="text-2xl font-bold mb-4">
+                  <span className="gradient-text">Interested in Working Together?</span>
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                   I'm always excited to work on new projects and collaborate with talented individuals. 

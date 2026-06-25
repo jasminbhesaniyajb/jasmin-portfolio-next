@@ -24,19 +24,26 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement
 
-    root.classList.remove('light', 'dark')
-
-    if (theme === 'dark' && enableSystem) {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches
-        ? 'dark'
-        : 'light'
-
-      root.classList.add(systemTheme)
-      return
+    const applyTheme = (value) => {
+      root.classList.remove('light', 'dark')
+      const resolved =
+        value === 'system' && enableSystem
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light'
+          : value
+      root.classList.add(resolved === 'dark' ? 'dark' : 'light')
     }
 
-    root.classList.add(theme)
+    applyTheme(theme)
+
+    // Keep in sync with OS preference while on "system".
+    if (theme === 'system' && enableSystem) {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)')
+      const onChange = () => applyTheme('system')
+      mql.addEventListener('change', onChange)
+      return () => mql.removeEventListener('change', onChange)
+    }
   }, [theme, enableSystem])
 
   const value = {

@@ -57,13 +57,20 @@ module.exports = {
           900: "var(--neutral-900)",
         },
       },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+      },
       animation: {
         gradient: "gradient 8s linear infinite",
-        float: "float 6s ease-in-out infinite",
-        glow: "glow 2s ease-in-out infinite alternate",
-        fadeInUp: "fadeInUp 0.8s ease-out",
-        fadeInLeft: "fadeInLeft 0.8s ease-out",
-        fadeInRight: "fadeInRight 0.8s ease-out",
+        shimmer: "shimmer 6s linear infinite",
+        float: "float 7s ease-in-out infinite",
+        "float-slow": "float 11s ease-in-out infinite",
+        glow: "glow 2.4s ease-in-out infinite alternate",
+        blink: "blink 1s step-end infinite",
+        fadeInUp: "fadeInUp 0.7s ease-out both",
+        fadeInLeft: "fadeInLeft 0.7s ease-out both",
+        fadeInRight: "fadeInRight 0.7s ease-out both",
       },
       keyframes: {
         gradient: {
@@ -76,13 +83,21 @@ module.exports = {
             "background-position": "right center",
           },
         },
+        shimmer: {
+          "0%": { "background-position": "0% center" },
+          "100%": { "background-position": "250% center" },
+        },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
+          "50%": { transform: "translateY(-22px)" },
         },
         glow: {
-          from: { "box-shadow": "0 0 20px var(--primary-500)" },
-          to: { "box-shadow": "0 0 30px var(--primary-600)" },
+          from: { "box-shadow": "0 0 24px -6px var(--primary-500)" },
+          to: { "box-shadow": "0 0 40px -4px var(--secondary-500)" },
+        },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
         },
         fadeInUp: {
           "0%": { opacity: "0", transform: "translateY(30px)" },

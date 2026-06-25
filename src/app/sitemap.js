@@ -1,18 +1,21 @@
-export default function sitemap() {
-    const baseUrl = 'https://jasminportfoliopro.vercel.app';
+import { siteConfig } from "@/lib/site";
 
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/blogs`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.8,
-        },
-    ];
+export default function sitemap() {
+  const baseUrl = siteConfig.url;
+  const lastModified = new Date();
+
+  return [
+    {
+      url: baseUrl,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/blogs`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+  ];
 }

@@ -1,172 +1,168 @@
 "use client";
 import { useState, useEffect } from "react";
+import { ArrowRight, Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 import { cn } from "@/lib/utils";
+import CodeTerminal from "./code-terminal";
+
+const roles = [
+  "React.js & Next.js Expert",
+  "React Native Developer",
+  "Vue.js Engineer",
+  "UI / UX Focused",
+];
+
+const socials = [
+  { name: "GitHub", icon: Github, url: "https://github.com/jasminbhesaniyajb" },
+  { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1/" },
+  { name: "Email", icon: Mail, url: "mailto:jasminbhesaniya@gmail.com" },
+];
 
 const HeroSection = () => {
   const { elementRef, isVisible } = useIntersectionObserver();
   const [currentRole, setCurrentRole] = useState(0);
 
-  const roles = [
-    "Senior Front-End Developer",
-    "React.js, Next.js and React Native Expert",
-    "Vue.js Expert",
-  ];
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 2800);
     return () => clearInterval(interval);
   }, []);
 
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = (id) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section
       id="home"
       ref={elementRef}
-      className="min-h-screen pt-8 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-neutral-50 via-primary-50/30 to-secondary-50/30 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-primary-50/40 via-neutral-50 to-neutral-50 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-900"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Orbs */}
-        <div
-          className="absolute w-64 h-64 bg-secondary-500/10 rounded-full blur-3xl animate-float"
-        />
-        <div
-          className="absolute w-80 h-80 bg-accent-500/10 rounded-full blur-3xl animate-float"
-        />
+      {/* Backdrop */}
+      <div className="pointer-events-none absolute inset-0 bg-grid-pattern opacity-[0.4] dark:opacity-[0.5]" />
+      <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-primary-500/15 blur-3xl animate-float-slow" />
+      <div className="pointer-events-none absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-secondary-500/15 blur-3xl animate-float" />
 
-        {/* Geometric Shapes */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-float opacity-20 dark:opacity-10"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 6}s`,
-                animationDuration: `${6 + Math.random() * 4}s`,
-              }}
-            >
-              <div className="w-2 h-2 bg-primary-400 rotate-45 transform" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div
-          className={cn(
-            "transition-all duration-1000 ease-out",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          )}
-        >
-          {/* Greeting */}
-          <div className="mb-4 mt-10">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-full text-sm font-medium text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 animate-fadeInUp">
-              👋 Hello, I'm
-            </span>
-          </div>
-
-          {/* Name */}
-          <h1>
-            <span
-              className="block text-4xl sm:text-5xl lg:text-7xl font-bold animate-fadeInUp"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <span className="gradient-text">Jasmin Bhesaniya</span>
-            </span>
-          </h1>
-
-          {/* Dynamic Role */}
-          <div className="relative mb-4 h-14 md:h-20 flex items-center justify-center overflow-hidden">
-          <h2 className="text-md sm:text-2xl lg:text-3xl font-semibold text-neutral-700 dark:text-neutral-300 animate-fadeInUp relative">
-            {roles.map((role, index) => (
-              <span
-                key={role}
-                className={cn(
-                  "absolute top-0 left-1/2 transform -translate-x-1/2 transition-all duration-500 ease-in-out whitespace-nowrap text-blue-600 dark:text-blue-400",
-                  currentRole === index
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
-                )}
-                style={{
-                  animationDelay: "0.4s",
-                  minWidth: "max-content"
-                }}
-              >
-                {role}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-28 pb-16 sm:px-6 lg:px-8 lg:pt-24">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
+          {/* Left: intro */}
+          <div
+            className={cn(
+              "transition-all duration-1000 ease-out",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            )}
+          >
+            {/* Availability badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 dark:border-primary-500/30 dark:bg-primary-500/10">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-500" />
               </span>
-            ))}
-          </h2>
-        </div>
+              <span className="font-mono text-xs font-medium text-primary-700 dark:text-primary-300">
+                Available for new projects
+              </span>
+            </div>
 
-          {/* Description */}
-          <p
-            className="max-w-3xl mx-auto text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed mb-10 animate-fadeInUp"
-            style={{ animationDelay: "0.6s" }}
-          >
-            Passionate about creating beautiful, responsive web applications
-            with 5+ years of experience in
-            <span className="font-semibold text-primary-600 dark:text-primary-400">
-              {" "}
-              React.js, Next.js, React Native, Vue.js and modern frontend technologies
-            </span>
-            . Currently expanding into full-stack development while mentoring
-            the next generation of developers.
-          </p>
+            <p className="mb-3 font-mono text-sm text-neutral-500 dark:text-neutral-400">
+              Hi, my name is
+            </p>
 
-          {/* CTA Buttons */}
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fadeInUp"
-            style={{ animationDelay: "0.8s" }}
-          >
-            <button
-              onClick={scrollToProjects}
-              className="group relative px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-primary-500/25"
-            >
-              <span className="relative z-10">View My Work</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-          </div>
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="text-gradient-animated">Jasmin Bhesaniya</span>
+            </h1>
 
-          {/* Social Links */}
-          <div
-            className="my-4 flex justify-center space-x-6 animate-fadeInUp"
-            style={{ animationDelay: "1s" }}
-          >
-            {[
-              { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1/" },
-              {
-                name: "Email",
-                icon: "📧",
-                url: "mailto:jasminbhesaniya@gmail.com",
-              },
-            ].map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-neutral-800 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:-translate-y-1 group"
-                aria-label={social.name}
+            {/* Rotating role */}
+            <div className="mt-4 flex items-center gap-2 font-mono text-lg text-neutral-600 dark:text-neutral-300 sm:text-xl lg:text-2xl">
+              <span className="leading-none text-secondary-500">&lt;</span>
+              <span
+                className="relative inline-flex h-8 max-w-full items-center overflow-hidden transition-[width] duration-500 ease-in-out lg:h-9"
+                style={{ width: `${roles[currentRole].length}ch` }}
               >
-                <span className="text-xl group-hover:scale-110 transition-transform duration-200">
-                  {social.icon}
-                </span>
+                {roles.map((role, index) => (
+                  <span
+                    key={role}
+                    aria-hidden={currentRole !== index}
+                    className={cn(
+                      "absolute inset-0 flex items-center whitespace-nowrap font-semibold text-neutral-800 transition-all duration-500 ease-in-out dark:text-neutral-100",
+                      currentRole === index
+                        ? "translate-y-0 opacity-100"
+                        : "pointer-events-none translate-y-3 opacity-0"
+                    )}
+                  >
+                    {role}
+                  </span>
+                ))}
+              </span>
+              <span className="leading-none text-secondary-500">/&gt;</span>
+            </div>
+
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-lg">
+              I craft beautiful, responsive web applications with{" "}
+              <span className="font-semibold text-primary-600 dark:text-primary-400">
+                5+ years
+              </span>{" "}
+              of experience across React, Next.js, React Native and Vue — now
+              expanding into full-stack while mentoring the next generation of devs.
+            </p>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <button
+                onClick={() => scrollTo("projects")}
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-3 font-semibold text-white shadow-lg shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary-500/40"
+              >
+                View My Work
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+              <a
+                href="mailto:jasminbhesaniya@gmail.com"
+                className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 bg-white/60 px-6 py-3 font-semibold text-neutral-700 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-400 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-800/60 dark:text-neutral-200 dark:hover:text-primary-400"
+              >
+                Get in touch
               </a>
-            ))}
+            </div>
+
+            {/* Socials */}
+            <div className="mt-8 flex items-center gap-3">
+              {socials.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target={social.url.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="flex h-11 w-11 items-center justify-center rounded-lg border border-neutral-200 bg-white/70 text-neutral-600 transition-all duration-300 hover:-translate-y-1 hover:border-primary-400 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-800/70 dark:text-neutral-300 dark:hover:text-primary-400"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right: code terminal */}
+          <div
+            className={cn(
+              "transition-all duration-1000 ease-out lg:pl-6",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            )}
+            style={{ transitionDelay: "200ms" }}
+          >
+            <CodeTerminal />
           </div>
         </div>
 
+        {/* Scroll cue */}
+        <button
+          onClick={() => scrollTo("about")}
+          aria-label="Scroll to about"
+          className="mx-auto mt-14 hidden items-center justify-center text-neutral-400 transition-colors hover:text-primary-500 lg:flex"
+        >
+          <ArrowDown className="h-6 w-6 animate-bounce" />
+        </button>
       </div>
-
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10" />
     </section>
   );
 };

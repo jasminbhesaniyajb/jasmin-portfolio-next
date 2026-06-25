@@ -15,19 +15,19 @@ const Footer = () => {
       name: "GitHub",
       icon: Github,
       url: "https://github.com/jasminbhesaniyajb",
-      color: "hover:text-blue-600"
+      color: "hover:text-primary-400"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
       url: "https://www.linkedin.com/in/jasmin-bhesaniya-2aab611b1/",
-      color: "hover:text-blue-600"
+      color: "hover:text-primary-400"
     },
     {
       name: "Twitter",
       icon: Twitter,
       url: "https://x.com/BhesaniyaJb",
-      color: "hover:text-blue-600"
+      color: "hover:text-primary-400"
     }
   ];
 
@@ -38,8 +38,8 @@ const Footer = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #3b82f6 0%, transparent 50%),
-                           radial-gradient(circle at 75% 75%, #8b5cf6 0%, transparent 50%)`
+          backgroundImage: `radial-gradient(circle at 25% 25%, #10b981 0%, transparent 50%),
+                           radial-gradient(circle at 75% 75%, #06b6d4 0%, transparent 50%)`
         }}></div>
       </div>
 
@@ -51,8 +51,12 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent mb-3">
-                  Jasmin
+                <h3 className="mb-3 font-mono text-2xl font-bold">
+                  <span className="text-primary-400">&lt;</span>
+                  <span className="bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+                    jasmin
+                  </span>
+                  <span className="text-secondary-400">/&gt;</span>
                 </h3>
                 <p className="text-neutral-300 text-sm leading-relaxed">
                   Frontend Developer passionate about creating beautiful, functional, and user-friendly web experiences.
@@ -88,14 +92,14 @@ const Footer = () => {
                 
                 {/* Email */}
                 <div className="flex items-center space-x-4 group">
-                  <div className="p-2 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors duration-300">
-                    <Mail className="w-5 h-5 text-blue-400" />
+                  <div className="p-2 bg-primary-500/20 rounded-lg group-hover:bg-primary-500/30 transition-colors duration-300">
+                    <Mail className="w-5 h-5 text-primary-400" />
                   </div>
                   <div>
                     <p className="text-sm text-neutral-400 mb-1">Email</p>
-                    <a 
+                    <a
                       href={`mailto:${contactInfo.email}`}
-                      className="text-white hover:text-blue-400 transition-colors duration-300 flex items-center space-x-2"
+                      className="text-white hover:text-primary-400 transition-colors duration-300 flex items-center space-x-2"
                     >
                       <span>{contactInfo.email}</span>
                       <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -105,14 +109,14 @@ const Footer = () => {
 
                 {/* Phone */}
                 <div className="flex items-center space-x-4 group">
-                  <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors duration-300">
-                    <Phone className="w-5 h-5 text-green-400" />
+                  <div className="p-2 bg-secondary-500/20 rounded-lg group-hover:bg-secondary-500/30 transition-colors duration-300">
+                    <Phone className="w-5 h-5 text-secondary-400" />
                   </div>
                   <div>
                     <p className="text-sm text-neutral-400 mb-1">Phone</p>
-                    <a 
+                    <a
                       href={`tel:${contactInfo.phone}`}
-                      className="text-white hover:text-green-400 transition-colors duration-300 flex items-center space-x-2"
+                      className="text-white hover:text-secondary-400 transition-colors duration-300 flex items-center space-x-2"
                     >
                       <span>{contactInfo.phone}</span>
                       <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -134,7 +138,7 @@ const Footer = () => {
                     className="block text-neutral-300 hover:text-white hover:translate-x-2 transition-all duration-300 group"
                   >
                     <div className="flex items-center space-x-2">
-                      <span className="w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-4 transition-all duration-300"></span>
+                      <span className="w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 group-hover:w-4 transition-all duration-300"></span>
                       <span>{link}</span>
                     </div>
                   </a>
@@ -155,7 +159,7 @@ const Footer = () => {
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-400 animate-pulse" />
                 <span>by</span>
-                <span className="font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="font-semibold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
                   Jasmin
                 </span>
               </div>
@@ -171,8 +175,8 @@ const Footer = () => {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-10 right-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-10 left-10 w-16 h-16 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      <div className="absolute top-10 right-10 w-20 h-20 bg-primary-500/10 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-10 left-10 w-16 h-16 bg-secondary-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
     </footer>
   );
 };

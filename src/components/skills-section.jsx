@@ -52,10 +52,9 @@ const SkillsSection = () => {
         >
           {/* Section Header */}
           <div className="text-center mb-10">
+            <p className="mono-label mb-3">// 02. skills</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
-                Skills & Expertise
-              </span>
+              <span className="gradient-text">Skills &amp; Expertise</span>
             </h2>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
               Technologies and tools I work with to create amazing digital
@@ -72,7 +71,7 @@ const SkillsSection = () => {
                   onClick={() => setActiveCategory(category.key)}
                   className={`flex flex-col sm:flex-row items-center justify-center space-y-1 sm:space-y-0 sm:space-x-2 px-2 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm lg:text-base whitespace-nowrap flex-1 sm:flex-none min-w-0 ${
                     activeCategory === category.key
-                      ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105"
+                      ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg shadow-primary-500/25 transform scale-105"
                       : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-700"
                   }`}
                 >
@@ -123,7 +122,7 @@ const SkillsSection = () => {
                   {SKILLS[activeCategory].map((skill, index) => (
                     <div
                       key={skill.name}
-                      className={`group flex flex-col items-center p-4 rounded-xl bg-white dark:bg-neutral-700/50 border border-neutral-200 dark:border-neutral-600 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer ${
+                      className={`group flex flex-col items-center p-4 rounded-xl bg-white dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 hover:border-primary-400 dark:hover:border-primary-500 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10 hover:-translate-y-1 cursor-pointer ${
                         isVisible
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 translate-y-10"
@@ -144,13 +143,13 @@ const SkillsSection = () => {
                             e.target.nextSibling.style.display = "flex";
                           }}
                         />
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg hidden">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-lg hidden">
                           {skill.name.charAt(0)}
                         </div>
                       </div>
 
                       {/* Skill Name */}
-                      <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200 text-center group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200 text-center group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
                         {skill.name}
                       </span>
                     </div>
@@ -164,8 +163,8 @@ const SkillsSection = () => {
           <div className="mt-16 text-center">
             <Card className="max-w-4xl mx-auto">
               <CardContent className="p-4 md:p-8">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
-                  Always Learning
+                <h3 className="text-2xl font-bold mb-4">
+                  <span className="gradient-text">Always Learning</span>
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
                   I stay current with the latest technologies and best practices

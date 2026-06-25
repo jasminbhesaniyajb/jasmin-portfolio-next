@@ -15,8 +15,9 @@ const AboutSection = () => {
   ];
 
   const technologies = [
-    'React.js', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript', 'React Native',
-    'GraphQL', 'Tailwind CSS', 'Shadcn', 'Ant Design', 'Material UI', 'Vuetify'
+    'React.js', 'Next.js', 'Remix.js', 'Vue.js', 'React Native', 'Flutter',
+    'TypeScript', 'JavaScript', 'GraphQL', 'Supabase', 'Tailwind CSS', 'Shadcn',
+    'Ant Design', 'Material UI', 'Vuetify'
   ];
 
   return (
@@ -28,6 +29,7 @@ const AboutSection = () => {
         )}>
           {/* Section Header */}
           <div className="text-center mb-16">
+            <p className="mono-label mb-3">// 01. about</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               <span className="gradient-text">About Me</span>
             </h2>
@@ -70,10 +72,10 @@ const AboutSection = () => {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((tech, index) => (
-                    <Badge 
-                      key={tech} 
-                      variant="secondary" 
-                      className="hover:scale-105 text-base bg-primary-600 text-white transition-transform duration-200 cursor-default"
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="cursor-default border border-primary-200 bg-primary-50 px-3 py-1 font-mono text-sm text-primary-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400 dark:border-primary-500/30 dark:bg-primary-500/10 dark:text-primary-300"
                       style={{
                         animationDelay: `${index * 0.1}s`
                       }}
@@ -135,10 +137,10 @@ const AboutSection = () => {
                   <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
                     {stat.icon}
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold text-primary-600 mb-2">
-                    {stat.number}
+                  <div className="mb-2 text-3xl font-bold lg:text-4xl">
+                    <span className="gradient-text">{stat.number}</span>
                   </div>
-                  <div className="text-primary-600 text-lg font-semibold">
+                  <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400 sm:text-base">
                     {stat.label}
                   </div>
                 </div>
