@@ -146,19 +146,19 @@ const ProjectsSection = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="mt-16 text-center">
+          {/* <div className="mt-16 text-center">
             <Card className="max-w-4xl mx-auto">
               <div className="p-4 md:p-8">
                 <h3 className="text-2xl font-bold mb-4">
                   <span className="gradient-text">Interested in Working Together?</span>
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                  I'm always excited to work on new projects and collaborate with talented individuals. 
+                  I'm always excited to work on new projects and collaborate with talented individuals.
                   Let's create something amazing together!
                 </p>
               </div>
             </Card>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
