@@ -134,7 +134,6 @@ export const PROJECTS = [
     description: "This web app is use for hospital management and this project focuses on the user interface that is accessible to the hospital staff and the patients.",
     image: "/images/threease_pro.webp",
     liveUrl: "https://reserve.threease.com/",
-    githubUrl: "https://github.com/username/ecommerce-platform",
     techStack: ["Nuxt.js", "Vuex", "Typescript", "HTML5", "CSS3", "SCSS", "Vuetify", "storybook"],
     category: "Frontend",
   },

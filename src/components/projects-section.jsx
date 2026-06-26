@@ -1,128 +1,172 @@
-"use client"
-import { ExternalLink, Github, ArrowRight, Eye } from 'lucide-react';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { Card } from './ui/card';
-import { PROJECTS } from '@/constants';
+"use client";
+import { ExternalLink, Github, ArrowUpRight, Star } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { Card } from "./ui/card";
+import { PROJECTS } from "@/constants";
+
+const MAX_VISIBLE_TECH = 4;
+
+// Guard against missing or placeholder/example URLs that would 404.
+const isValidUrl = (url) =>
+  typeof url === "string" &&
+  url.startsWith("http") &&
+  !url.includes("github.com/username/");
+
+const ProjectCard = ({ project, index, isVisible }) => {
+  const hasLive = isValidUrl(project.liveUrl);
+  const hasGithub = isValidUrl(project.githubUrl);
+  const tech = project.techStack ?? [];
+  const visibleTech = tech.slice(0, MAX_VISIBLE_TECH);
+  const hiddenTech = tech.slice(MAX_VISIBLE_TECH);
+
+  return (
+    <div
+      className={`group h-full transition-all duration-700 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <Card className="relative h-full gap-0 py-0 overflow-hidden border-neutral-200 dark:border-neutral-700/70 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-300 dark:hover:border-primary-500/50">
+        {/* Media */}
+        <div className="relative w-full h-56 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+            onError={(e) => {
+              e.target.src =
+                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center";
+            }}
+          />
+
+          {/* Hover scrim + quick actions (desktop affordance) */}
+          {(hasLive || hasGithub) && (
+            <div className="absolute inset-0 flex items-center justify-center gap-3 bg-gradient-to-t from-black/75 via-black/40 to-black/10 opacity-0 pointer-events-none transition-opacity duration-300 group-hover:opacity-100 group-hover:pointer-events-auto">
+              {hasLive && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${project.title} live`}
+                  title="View live site"
+                  className="translate-y-2 rounded-full bg-white/15 p-3 text-white ring-1 ring-white/30 backdrop-blur-md transition-all duration-300 hover:bg-white/30 group-hover:translate-y-0"
+                >
+                  <ExternalLink className="h-5 w-5" />
+                </a>
+              )}
+              {hasGithub && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${project.title} source code`}
+                  title="View source code"
+                  className="translate-y-2 rounded-full bg-white/15 p-3 text-white ring-1 ring-white/30 backdrop-blur-md transition-all delay-75 duration-300 hover:bg-white/30 group-hover:translate-y-0"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+              )}
+            </div>
+          )}
+
+          {/* Category badge */}
+          {project.category && (
+            <span className="absolute left-3 top-3 rounded-full border border-white/40 bg-white/80 px-2.5 py-1 text-xs font-medium text-neutral-700 backdrop-blur-md dark:border-white/10 dark:bg-neutral-900/70 dark:text-neutral-200">
+              {project.category}
+            </span>
+          )}
+
+          {/* Featured badge */}
+          {project.featured && (
+            <span className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-gradient-to-r from-accent-400 to-accent-500 px-2.5 py-1 text-xs font-semibold text-white shadow-sm">
+              <Star className="h-3 w-3 fill-current" />
+              Featured
+            </span>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col p-6">
+          <h3 className="mb-2 line-clamp-2 text-xl font-bold text-neutral-800 transition-colors duration-200 group-hover:text-primary-600 dark:text-neutral-100 dark:group-hover:text-primary-400">
+            {project.title}
+          </h3>
+
+          <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            {project.description}
+          </p>
+
+          {/* Tech stack */}
+          {tech.length > 0 && (
+            <div className="mb-6 flex flex-wrap gap-2">
+              {visibleTech.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-medium text-neutral-700 dark:bg-neutral-700/60 dark:text-neutral-300"
+                >
+                  {item}
+                </span>
+              ))}
+              {hiddenTech.length > 0 && (
+                <span
+                  title={hiddenTech.join(", ")}
+                  className="rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-medium text-neutral-500 dark:border-neutral-700 dark:text-neutral-400"
+                >
+                  +{hiddenTech.length}
+                </span>
+              )}
+            </div>
+          )}
+
+          {/* Footer actions, pinned to the bottom for a consistent baseline */}
+          {(hasLive || hasGithub) && (
+            <div className="mt-auto flex items-center justify-between gap-3 border-t border-neutral-100 pt-4 dark:border-neutral-700/50">
+              {hasLive && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
+                >
+                  Live Demo
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+              )}
+              {hasGithub && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View source code"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100"
+                >
+                  <Github className="h-4 w-4" />
+                  Code
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      </Card>
+    </div>
+  );
+};
 
 const ProjectsSection = () => {
   const { elementRef, isVisible } = useIntersectionObserver();
 
-  const ProjectCard = ({ project, index }) => {
-    const isHovered = false;
-    
-    return (
-      <div
-        className={`group transition-all duration-500 ease-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-        style={{ transitionDelay: `${index * 150}ms` }}
-      >
-        <Card className="h-full pt-0 overflow-hidden transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl">
-          {/* Project Image */}
-          <div className="relative w-full h-56 overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-center transition-transform duration-500 group-hover:scale-110"
-              onError={(e) => {
-                e.target.src = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=center';
-              }}
-            />
-            
-            {/* Overlay on hover */}
-            <div className={`absolute inset-0 bg-black/60 transition-opacity duration-300 flex items-center justify-center space-x-4 ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}>
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-200"
-                title="View Live Site"
-              >
-                <ExternalLink className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-200"
-                title="View Source Code"
-              >
-                <Github className="w-5 h-5 text-white" />
-              </a>
-            </div>
-
-            {/* Category Badge */}
-            {/* <div className="absolute top-4 left-4">
-              <span className="px-3 py-1 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-medium rounded-full">
-                Frontend
-              </span>
-            </div> */}
-
-            {/* Featured Badge */}
-            {/* {project.featured && (
-              <div className="absolute top-4 right-4">
-                <span className="px-2 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-medium rounded-full">
-                  Featured
-                </span>
-              </div>
-            )} */}
-          </div>
-
-          {/* Project Content */}
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
-              {project.title}
-            </h3>
-            
-            <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
-              {project.description}
-            </p>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {project.techStack.map((tech, techIndex) => (
-                <span
-                  key={techIndex}
-                  className="px-3 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-xs font-medium rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Action Links */}
-            {project.liveUrl && (
-            <div className="flex items-center justify-between">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors duration-200"
-              >
-                <Eye className="w-4 h-4" />
-                <span>Live Demo</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
-            </div>
-            )}
-          </div>
-        </Card>
-      </div>
-    );
-  };
-
   return (
-    <section 
-      id="projects" 
-      ref={elementRef} 
+    <section
+      id="projects"
+      ref={elementRef}
       className="px-4 sm:px-6 lg:px-8 py-16 lg:py-16 bg-white dark:bg-neutral-900"
     >
       <div className="max-w-7xl mx-auto">
-        <div className={`transition-all duration-1000 ease-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}>
+        <div
+          className={`transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           {/* Section Header */}
           <div className="text-center mb-16">
             <p className="mono-label mb-3">// 03. projects</p>
@@ -135,30 +179,16 @@ const ProjectsSection = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {PROJECTS.map((project, index) => (
-              <ProjectCard 
-                key={project.id} 
-                project={project} 
+              <ProjectCard
+                key={project.id}
+                project={project}
                 index={index}
+                isVisible={isVisible}
               />
             ))}
           </div>
-
-          {/* Call to Action */}
-          {/* <div className="mt-16 text-center">
-            <Card className="max-w-4xl mx-auto">
-              <div className="p-4 md:p-8">
-                <h3 className="text-2xl font-bold mb-4">
-                  <span className="gradient-text">Interested in Working Together?</span>
-                </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                  I'm always excited to work on new projects and collaborate with talented individuals.
-                  Let's create something amazing together!
-                </p>
-              </div>
-            </Card>
-          </div> */}
         </div>
       </div>
     </section>
