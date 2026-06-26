@@ -58,9 +58,6 @@ const HeroSection = () => {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-500" />
               </span>
-              <span className="font-mono text-xs font-medium text-primary-700 dark:text-primary-300">
-                Available for new projects
-              </span>
             </div>
 
             <p className="mb-3 font-mono text-sm text-neutral-500 dark:text-neutral-400">
