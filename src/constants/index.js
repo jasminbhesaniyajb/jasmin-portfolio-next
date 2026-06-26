@@ -191,28 +191,6 @@ export const PROJECTS = [
     category: "Open Source",
     featured: true
   },
-  {
-    id: 7,
-    title: "SimprosysAPIs",
-    description: "SimprosysAPIs is a feed management platform that lets self-hosted and custom-built e-commerce stores submit product data to multiple advertising channels — Google Shopping, Microsoft Advertising, Meta Ads, and Pinterest — from a single place, without building separate integrations for each. It supports importing products via public APIs, CSV, and Google Sheets, with advanced AND/OR filtering, variant-level bulk editing, automated attribute rules, real-time sync, Google Merchant Center setup, order-tracking submission, and a Performance Max campaign dashboard.",
-    image: "/images/simprosysAPIs.webp",
-    liveUrl: "https://simprosysapis.com/",
-    // githubUrl: "",
-    techStack: ["Next.js", "Tailwind CSS", "Shadcn ui", "Google Shopping API", "Meta Ads API"],
-    category: "Frontend",
-    featured: false
-  },
-  {
-    id: 8,
-    title: "Simprosys Google Shopping Feed",
-    description: "Simprosys Google Shopping Feed is a top-rated Shopify app (4.9★ from 4,400+ reviews) that automates product feed creation, optimization, and submission across major sales channels — Google Shopping, Free Listings & Local Inventory Ads, Meta/Facebook & Instagram Shops, Microsoft Advertising, and Pinterest, plus 15+ more. It handles multi-language, multi-currency, and multi-country feeds with bulk editing, attribute mapping, custom rules, and AI-powered optimization, alongside Performance Max campaign setup, conversion tracking, dynamic remarketing, GA4, and Consent Mode V2 compliance.",
-    image: "/images/simprosys_google_shopping_feed.webp",
-    liveUrl: "https://apps.shopify.com/google-shopping-feed",
-    // githubUrl: "",
-    techStack: ["React", "Shopify Polaris", "App Bridge", "GraphQL", "Google Shopping API"],
-    category: "Frontend",
-    featured: false
-  }
 ];
 
 export const EXPERIENCE = [
