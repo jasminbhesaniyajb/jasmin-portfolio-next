@@ -53,12 +53,12 @@ const HeroSection = () => {
             )}
           >
             {/* Availability badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 dark:border-primary-500/30 dark:bg-primary-500/10">
+            {/* <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 dark:border-primary-500/30 dark:bg-primary-500/10">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-500" />
               </span>
-            </div>
+            </div> */}
 
             <p className="mb-3 font-mono text-sm text-neutral-500 dark:text-neutral-400">
               Hi, my name is
