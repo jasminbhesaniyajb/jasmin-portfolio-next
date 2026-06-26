@@ -101,7 +101,7 @@ const HeroSection = () => {
               <span className="font-semibold text-primary-600 dark:text-primary-400">
                 5+ years
               </span>{" "}
-              of experience across React, Next.js, React Native and Vue — now
+              of experience across React.js, Next.js, React Native, Vue.js, Remix.js and Flutter  — now
               expanding into full-stack while mentoring the next generation of devs.
             </p>
 
