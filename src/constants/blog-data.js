@@ -1,5 +1,32 @@
 export const BLOG_POSTS = [
   {
+    id: 20,
+    title: "HTTP Finally Gets a Missing Piece: Understanding the New QUERY Method",
+    description: "RFC 10008 introduces the HTTP QUERY method — the first new HTTP verb since PATCH in 2010 — blending GET’s safe, cacheable semantics with a POST-style request body for complex read-only requests.",
+    link: "https://medium.com/@jasminbhesaniya/http-finally-gets-a-missing-piece-understanding-the-new-query-method-cc7dd5642def",
+    image: "",
+    category: "HTTP, Web",
+    date: "2026"
+  },
+  {
+    id: 21,
+    title: "🚀 Claude Code Plugins Explained: Skills, Agents, MCP Servers & More",
+    description: "A tour of Claude Code’s plugin system — how skills, specialized agents, MCP servers, hooks, and LSP servers extend your development workflow.",
+    link: "https://medium.com/@jasminbhesaniya/claude-code-plugins-explained-skills-agents-mcp-servers-more-5adff4b62f05",
+    image: "",
+    category: "Claude Code, AI",
+    date: "2026"
+  },
+  {
+    id: 22,
+    title: "🤖 Smart Prompting for Software Engineers",
+    description: "How to use AI effectively as a developer — why prompt quality decides code quality, and how SKILL.md files teach AI tools your project’s architecture and coding standards.",
+    link: "https://medium.com/@jasminbhesaniya/smart-prompting-for-software-engineers-124f308ee5e6",
+    image: "",
+    category: "AI, Prompt Engineering",
+    date: "2026"
+  },
+  {
     id: 11,
     title: "🤖 Generative AI vs AI Agents vs Agentic AI — What’s the Real Difference?",
     description: "AI is evolving very fast — from tools that only create content to systems that can think, plan, and act on their own.",
