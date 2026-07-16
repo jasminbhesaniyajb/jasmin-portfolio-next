@@ -175,3 +175,31 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Floating character mascot — gentle bob + entrance (auto-neutralised by the
+   reduced-motion block above) */
+@keyframes mascotBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.mascot-bob {
+  animation: mascotBob 3.6s ease-in-out infinite;
+}
+@keyframes mascotIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.mascot-in {
+  animation: mascotIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

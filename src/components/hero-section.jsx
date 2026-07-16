@@ -4,6 +4,7 @@ import { ArrowRight, Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 import { cn } from "@/lib/utils";
 import CodeTerminal from "./code-terminal";
+import HeroMascot from "./hero-mascot";
 
 const roles = [
   "React.js & Next.js Expert",
@@ -48,15 +49,18 @@ const HeroSection = () => {
           {/* Left: intro */}
           <div
             className={cn(
-              "transition-all duration-1000 ease-out",
+              "relative transition-all duration-1000 ease-out",
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
             {/* Availability badge */}
-            {/* <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 dark:border-primary-500/30 dark:bg-primary-500/10">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-500" />
+            {/* <div className="mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                </span>
+                Available for work
               </span>
             </div> */}
 
@@ -136,6 +140,11 @@ const HeroSection = () => {
                   </a>
                 );
               })}
+            </div>
+
+            {/* Character mascot — fills the empty lower gap (desktop only) */}
+            <div className="pointer-events-none absolute -bottom-6 right-0 z-20 hidden lg:block xl:-bottom-2">
+              <HeroMascot className="w-44 xl:w-48" />
             </div>
           </div>
 

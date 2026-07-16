@@ -66,7 +66,7 @@ const AboutSection = () => {
               </div>
 
               {/* Technologies */}
-              <div className="pt-6">
+              {/* <div className="pt-6">
                 <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
                   Technologies I Work With
                 </h3>
@@ -84,7 +84,7 @@ const AboutSection = () => {
                     </Badge>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right Column - Highlights Grid */}
@@ -119,7 +119,7 @@ const AboutSection = () => {
           </div>
 
           {/* Stats Section */}
-          <div className="mt-16 pt-16 border-t border-neutral-200 dark:border-neutral-700">
+          {/* <div className="mt-16 pt-16 border-t border-neutral-200 dark:border-neutral-700">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 { number: '5+', label: 'Years Experience', icon: '📅' },
@@ -127,7 +127,7 @@ const AboutSection = () => {
                 { number: '4+', label: 'Technologies Mastered', icon: '⚡' },
                 { number: '5+', label: 'Developers Mentored', icon: '👥' },
               ].map((stat, index) => (
-                <div 
+                <div
                   key={stat.label}
                   className="text-center group"
                   style={{
@@ -146,7 +146,7 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
